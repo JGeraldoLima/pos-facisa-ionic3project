@@ -1,0 +1,55 @@
+{
+  "project_info": {
+    "project_number": "15926865683",
+    "firebase_url": "https://nasa-imagery-sample.firebaseio.com",
+    "project_id": "nasa-imagery-sample",
+    "storage_bucket": "nasa-imagery-sample.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:15926865683:android:97e006ad3521b7ce",
+        "android_client_info": {
+          "package_name": "br.com.nasaimagerysample.jgeraldo"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "15926865683-fgs7pbg5lq4uj3kmkjdrmeo8fclr6606.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "br.com.nasaimagerysample.jgeraldo",
+            "certificate_hash": "9ac5d42445a8b15e7465f27b1e8fa3d6dd416f2f"
+          }
+        },
+        {
+          "client_id": "15926865683-goqka7044tn9bhes1tjrm48thugk3k3p.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDM5UKZB4QdSd-uH3tAym5XNRtFOU9X0zI"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 2,
+          "other_platform_oauth_client": [
+            {
+              "client_id": "15926865683-goqka7044tn9bhes1tjrm48thugk3k3p.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

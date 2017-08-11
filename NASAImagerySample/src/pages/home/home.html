@@ -1,0 +1,47 @@
+<ion-header>
+  <ion-navbar>
+    <button ion-button menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+    <ion-title>Home</ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content>
+  <agm-map (mapClick)="onMapClicked($event)" [mapTypeControl]="true" [latitude]="map.latitude"
+           [longitude]="map.longitude">
+    <agm-marker [latitude]="map.latitude" [longitude]="map.longitude"></agm-marker>
+  </agm-map>
+
+  <ion-content padding>
+    <ion-grid>
+      <ion-row>
+        <ion-col col-10>
+          <h5>Latitude: {{map.latitude}}</h5>
+          <h5>Longitude: {{map.longitude}}</h5>
+        </ion-col>
+        <ion-col col-2>
+          <button ion-button icon-only (click)="getCurrentPosition()">
+            <ion-icon name="locate"></ion-icon>
+          </button>
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+
+    <ion-grid>
+      <ion-row>
+        <ion-col col-6>
+          <h5>Date: -</h5>
+        </ion-col>
+        <ion-col col-6>
+          <button ion-button icon-only>
+            <ion-icon name="calendar"></ion-icon>
+          </button>
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+
+    <button ion-button secondary full>Get sattelite image</button>
+    <!--button to get current position, calling getCurrentPosition code-->
+  </ion-content>
+</ion-content>
