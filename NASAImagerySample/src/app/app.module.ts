@@ -14,6 +14,7 @@ import {Geolocation} from '@ionic-native/geolocation';
 import {ToastServiceProvider} from '../providers/toast-service/toast-service';
 import {Toast} from '@ionic-native/toast';
 import { LoadingServiceProvider } from '../providers/loading-service/loading-service';
+import {HttpModule} from '@angular/http';
 
 @NgModule({
   declarations: [
@@ -23,6 +24,7 @@ import { LoadingServiceProvider } from '../providers/loading-service/loading-ser
   ],
   imports: [
     BrowserModule,
+    HttpModule,
     IonicModule.forRoot(MyApp),
     AgmCoreModule.forRoot({
       apiKey: 'AIzaSyC2mMe9v9tPpz-RTpAY8pnHsZpNcm60j-I' //TODO: extract to a config file that will not be commited for safety

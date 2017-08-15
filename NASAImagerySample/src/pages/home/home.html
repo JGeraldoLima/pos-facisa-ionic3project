@@ -30,18 +30,18 @@
 
     <ion-grid>
       <ion-row>
-        <ion-col col-6>
-          <h5>Date: -</h5>
+        <ion-col col-3>
+          <h5>Date:</h5>
         </ion-col>
-        <ion-col col-6>
-          <button ion-button icon-only>
-            <ion-icon name="calendar"></ion-icon>
-          </button>
+        <ion-col col-5>
+          <ion-datetime displayFormat="YYYY-MM-DD"
+                        pickerFormat="YYYY-MM-DD"
+                        [(ngModel)]="datePickerModel">
+          </ion-datetime>
         </ion-col>
       </ion-row>
     </ion-grid>
 
-    <button ion-button secondary full>Get sattelite image</button>
-    <!--button to get current position, calling getCurrentPosition code-->
+    <button ion-button secondary full (click)="getSatteliteImage()">Get sattelite image</button>
   </ion-content>
 </ion-content>
