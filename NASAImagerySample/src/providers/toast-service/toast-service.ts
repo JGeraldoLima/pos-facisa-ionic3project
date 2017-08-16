@@ -1,22 +1,19 @@
 import {Injectable} from '@angular/core';
 import 'rxjs/add/operator/map';
-import {Toast} from '@ionic-native/toast';
+import {ToastController} from 'ionic-angular';
 
 @Injectable()
 export class ToastServiceProvider {
 
-  constructor(public toast: Toast) {}
+  constructor(public toastCtrl: ToastController) {
+  }
 
   showToast(msg, delay) {
-    this.toast.showWithOptions({
+    this.toastCtrl.create({
       message: msg,
       duration: delay,
       position: 'bottom'
-    }).subscribe(
-      toast => {
-        console.log(toast);
-      }
-    );
+    }).present();
   }
 
 }

@@ -8,7 +8,10 @@
 </ion-header>
 
 <ion-content>
-  <agm-map (mapClick)="onMapClicked($event)" [mapTypeControl]="true" [latitude]="map.latitude"
+  <agm-map (mapClick)="onMapClicked($event)"
+           [mapTypeControl]="true"
+           [zoom]="map.zoom"
+           [latitude]="map.latitude"
            [longitude]="map.longitude">
     <agm-marker [latitude]="map.latitude" [longitude]="map.longitude"></agm-marker>
   </agm-map>
@@ -17,8 +20,8 @@
     <ion-grid>
       <ion-row>
         <ion-col col-10>
-          <h5>Latitude: {{map.latitude}}</h5>
-          <h5>Longitude: {{map.longitude}}</h5>
+          <h5 class="detail-label">Latitude: <span class="detail-value">{{map.latitude}}</span></h5>
+          <h5 class="detail-label">Longitude: <span class="detail-value">{{map.longitude}}</span></h5>
         </ion-col>
         <ion-col col-2>
           <button ion-button icon-only (click)="getCurrentPosition()">
@@ -31,13 +34,15 @@
     <ion-grid>
       <ion-row>
         <ion-col col-3>
-          <h5>Date:</h5>
+          <h5 class="detail-label">Date: </h5>
         </ion-col>
-        <ion-col col-5>
-          <ion-datetime displayFormat="YYYY-MM-DD"
-                        pickerFormat="YYYY-MM-DD"
-                        [(ngModel)]="datePickerModel">
-          </ion-datetime>
+        <ion-col col-9>
+          <span class="detail-value">
+            <ion-datetime displayFormat="YYYY-MM-DD"
+                          pickerFormat="YYYY-MM-DD"
+                          [(ngModel)]="datePickerModel">
+            </ion-datetime>
+          </span>
         </ion-col>
       </ion-row>
     </ion-grid>

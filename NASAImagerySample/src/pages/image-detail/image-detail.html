@@ -1,0 +1,36 @@
+<ion-header>
+  <ion-navbar>
+    <ion-title>Image Details</ion-title>
+  </ion-navbar>
+</ion-header>
+<ion-content>
+  <ion-img [src]="imageData.url" alt="Loading image url...">
+  </ion-img>
+
+  <ion-fab top right edge #fab1>
+    <button ion-fab mini>
+      <ion-icon name="add"></ion-icon>
+    </button>
+    <ion-fab-list side="bottom">
+      <button ion-fab (click)="saveToFavorites()">
+        <ion-icon name="star"></ion-icon>
+      </button>
+      <button ion-fab (click)="share()">
+        <ion-icon name="share"></ion-icon>
+      </button>
+    </ion-fab-list>
+  </ion-fab>
+
+
+  <ion-content padding>
+    <ion-grid>
+      <ion-row>
+        <ion-col>
+          <h5 class="detail-label">Latitude: <span class="detail-value">{{imageData.lat}}</span></h5>
+          <h5 class="detail-label">Longitude: <span class="detail-value">{{imageData.long}}</span></h5>
+          <h5 class="detail-label">Image registered at: <span class="detail-value">{{imageData.date}}</span></h5>
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+  </ion-content>
+</ion-content>

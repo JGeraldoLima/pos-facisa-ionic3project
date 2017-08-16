@@ -4,6 +4,7 @@ import {Geolocation} from '@ionic-native/geolocation';
 import {ToastServiceProvider} from '../../providers/toast-service/toast-service';
 import {LoadingServiceProvider} from '../../providers/loading-service/loading-service';
 import {NasaServiceProvider} from '../../providers/nasa-service/nasa-service';
+import {ImageDetailPage} from '../image-detail/image-detail';
 
 @Component({
   selector: 'page-home',
@@ -16,7 +17,7 @@ export class HomePage implements OnInit {
   map = {
     latitude: 0.0,
     longitude: 0.0,
-    zoom: 16
+    zoom: 15
   };
 
   constructor(public navCtrl: NavController,
@@ -44,6 +45,7 @@ export class HomePage implements OnInit {
       .then((result) => {
         this.map.latitude = result.coords.latitude;
         this.map.longitude = result.coords.longitude;
+        this.map.zoom = 15;
         this.toastService.showToast('Position found!', 3000);
         progressLoader.dismiss();
       })
@@ -75,7 +77,14 @@ export class HomePage implements OnInit {
     let formatedDate = yyyy + '-' + mm + '-' + dd;
     this.nasaService.getLocalImage(this.map.latitude, this.map.longitude, 0.025, formatedDate).subscribe((result => {
       if (result.url) {
-        this.toastService.showToast('URL: ' + result.url, 3000);
+        this.navCtrl.push(ImageDetailPage, {'data':
+          {
+            url: result.url,
+            lat: this.map.latitude,
+            long: this.map.longitude,
+            date: formatedDate
+          }
+        });
       } else {
         this.toastService.showToast('There is no image for the given date.', 3000);
       }

@@ -86,3 +86,11 @@ $colors: (
 
 @import "roboto";
 @import "noto-sans";
+
+.detail-label {
+  font-weight: normal;
+}
+
+.detail-value {
+  font-weight: bold;
+}

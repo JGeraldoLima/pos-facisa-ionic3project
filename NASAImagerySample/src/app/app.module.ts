@@ -15,12 +15,14 @@ import {ToastServiceProvider} from '../providers/toast-service/toast-service';
 import {Toast} from '@ionic-native/toast';
 import { LoadingServiceProvider } from '../providers/loading-service/loading-service';
 import {HttpModule} from '@angular/http';
+import {ImageDetailPage} from '../pages/image-detail/image-detail';
 
 @NgModule({
   declarations: [
     MyApp,
     HomePage,
-    ListPage
+    ListPage,
+    ImageDetailPage
   ],
   imports: [
     BrowserModule,
@@ -34,7 +36,8 @@ import {HttpModule} from '@angular/http';
   entryComponents: [
     MyApp,
     HomePage,
-    ListPage
+    ListPage,
+    ImageDetailPage
   ],
   providers: [
     StatusBar,
