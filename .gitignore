@@ -29,6 +29,7 @@ NASAImagerySample/plugins/android.json
 NASAImagerySample/plugins/ios.json
 NASAImagerySample/www/
 NASAImagerySample/$RECYCLE.BIN/
+NASAImagerySample/private_keys.ts
 
 .DS_Store
 Thumbs.db
