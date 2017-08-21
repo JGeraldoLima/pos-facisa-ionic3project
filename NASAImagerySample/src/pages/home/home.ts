@@ -1,5 +1,5 @@
 import {Component, OnInit} from '@angular/core';
-import {LoadingController, NavController} from 'ionic-angular';
+import {NavController} from 'ionic-angular';
 import {Geolocation} from '@ionic-native/geolocation';
 import {ToastServiceProvider} from '../../providers/toast-service/toast-service';
 import {LoadingServiceProvider} from '../../providers/loading-service/loading-service';
@@ -22,7 +22,6 @@ export class HomePage implements OnInit {
 
   constructor(public navCtrl: NavController,
               public geolocation: Geolocation,
-              public loadingCtrl: LoadingController,
               private toastService: ToastServiceProvider,
               private loadingService: LoadingServiceProvider,
               private nasaService: NasaServiceProvider) {

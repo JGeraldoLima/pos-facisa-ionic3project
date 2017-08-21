@@ -8,11 +8,12 @@ export class ToastServiceProvider {
   constructor(public toastCtrl: ToastController) {
   }
 
-  showToast(msg, delay) {
+  showToast(msg, delay?: number, showClose?: boolean) {
     this.toastCtrl.create({
       message: msg,
       duration: delay,
-      position: 'bottom'
+      position: 'bottom',
+      showCloseButton: showClose
     }).present();
   }
 

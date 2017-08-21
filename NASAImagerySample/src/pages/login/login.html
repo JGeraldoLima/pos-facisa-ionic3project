@@ -1,0 +1,20 @@
+<ion-header>
+  <ion-navbar>
+    <ion-title>Login to proceed</ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content padding>
+  <ion-row col-12 justify-content-center>
+    <ion-img text-center [src]="'assets/icon.png'" [width]="300" [height]="300" style="background: transparent;">
+    </ion-img>
+  </ion-row>
+  <h5 col-12 text-center>NASA Imagery API Sample</h5>
+  <ion-grid>
+    <ion-row>
+      <button col-12 text-center ion-button round
+              (click)="signInWithFacebook()">Login with Facebook
+      </button>
+    </ion-row>
+  </ion-grid>
+</ion-content>

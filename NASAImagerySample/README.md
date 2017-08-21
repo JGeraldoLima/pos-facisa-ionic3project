@@ -1,5 +1,25 @@
 This is a starter template for [Ionic](http://ionicframework.com/docs/) projects.
 
+PS.: for security purposes, I stored all services (Maps, Firebase, NASA) keys on a .ts file called private_keys.ts 
+and located on the app root. To be able to use this project for yourself, just configure your services, create your file 
+with the keys and be happy :).
+Its format match as follows:
+
+```typescript
+export const  firebase_config = {
+  apiKey: "xxxx",
+  authDomain: "xxxx",
+  databaseURL: "xxxx",
+  projectId: "xxxx",
+  storageBucket: "xxxx",
+  messagingSenderId: "xxxx"
+};
+
+export const NASA_API_KEY = 'xxxx';
+
+export const MAPS_KEY = 'xxx';
+```
+
 ## How to use this template
 
 *This template does not work on its own*. The shared files for each starter are found in the [ionic2-app-base repo](https://github.com/ionic-team/ionic2-app-base).
