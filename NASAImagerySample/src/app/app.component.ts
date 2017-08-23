@@ -9,6 +9,8 @@ import {LoginPage} from '../pages/login/login';
 import {AuthProvider} from '../providers/auth/auth';
 import {ToastServiceProvider} from '../providers/toast-service/toast-service';
 import {AngularFireAuth} from 'angularfire2/auth';
+import * as firebase from 'firebase/app';
+import {Observable} from 'rxjs/Observable';
 
 @Component({
   templateUrl: 'app.html'
@@ -17,6 +19,8 @@ export class MyApp {
   @ViewChild(Nav) nav: Nav;
 
   rootPage: any;
+
+  loggedUser: Observable<firebase.User>;
 
   pages: Array<{ title: string, component: any }>;
 
@@ -27,8 +31,10 @@ export class MyApp {
               private afAuth: AngularFireAuth,
               private toastService: ToastServiceProvider) {
 
+    this.loggedUser = afAuth.authState;
     const authObserver = afAuth.authState.subscribe( user => {
       if (user) {
+        // this.loggedUser = user;
         this.rootPage = HomePage;
         authObserver.unsubscribe();
       } else {

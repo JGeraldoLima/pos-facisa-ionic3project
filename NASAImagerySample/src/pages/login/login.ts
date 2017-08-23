@@ -14,10 +14,25 @@ export class LoginPage {
   }
 
   signInWithFacebook() {
+    // TODO: CREATE A LOADING AND DISMISS IT ON THEN AND CATCH CLAUSES
     this.auth.signInWithFacebook().then(res => {
-      // TODO: change for user displayName, after treat both cordova and web response
-      this.toastService.showToast('Logged in: ', 3000);
-      this.navCtrl.setRoot(HomePage);
+        if (res && res.user) {
+          this.toastService.showToast('Logged in: ' + res.user.displayName, 3000);
+        }
+        this.navCtrl.setRoot(HomePage);
+      }
+    ).catch((error) => {
+      this.toastService.showToast('Login error: ' + error, null, true);
+    });
+  }
+
+  signInWithGoogle() {
+    // TODO: CREATE A LOADING AND DISMISS IT ON THEN AND CATCH CLAUSES
+    this.auth.signInWithGoogle().then((res) => {
+        if (res && res.user) {
+          this.toastService.showToast('Logged in: ' + res.user.displayName, 3000);
+        }
+        this.navCtrl.setRoot(HomePage);
       }
     ).catch((error) => {
       this.toastService.showToast('Login error: ' + error, null, true);

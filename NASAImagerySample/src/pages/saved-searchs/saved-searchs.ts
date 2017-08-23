@@ -13,7 +13,9 @@ export class SavedSearchsPage {
 
   constructor(public navCtrl: NavController, private db: AngularFireDatabase) {
     this.searchs = db.list('/saved_searchs');
-    console.log(this.searchs);
+    this.searchs.subscribe(data => {
+      console.log(data);
+    });
   }
 
   openSearchDetails(event, search) {

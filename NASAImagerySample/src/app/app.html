@@ -6,6 +6,13 @@
   </ion-header>
 
   <ion-content>
+    <ion-item>
+      <ion-avatar item-start>
+        <img src="{{(loggedUser | async)?.photoURL}}" alt="Loading image url...">
+      </ion-avatar>
+      <h2>{{(loggedUser | async)?.displayName}}</h2>
+      <p>{{(loggedUser | async)?.email}}</p>
+    </ion-item>
     <ion-list>
       <button menuClose ion-item *ngFor="let p of pages" (click)="openPage(p)">
         {{p.title}}

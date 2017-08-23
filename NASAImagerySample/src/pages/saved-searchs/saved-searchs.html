@@ -9,7 +9,7 @@
 
 
 <ion-content padding>
-  <ion-list *ngIf=" (searchs | async)?.length > 0">
+  <ion-list *ngIf="(searchs | async)?.length > 0">
     <ion-item-sliding *ngFor="let search of searchs | async" (click)="openSearchDetails($event, search)">
       <ion-item>
         <h2>{{search.url}}</h2>
@@ -19,5 +19,5 @@
     </ion-item-sliding>
   </ion-list>
 
-  <h4 *ngIf="searchs == null || (searchs | async)?.length === 0" padding>No searchs saved yet.</h4>
+  <h4 *ngIf="(searchs | async)?.length === 0" padding>No searchs registered.</h4>
 </ion-content>

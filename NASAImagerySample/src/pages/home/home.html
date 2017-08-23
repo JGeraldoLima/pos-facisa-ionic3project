@@ -17,6 +17,7 @@
   </agm-map>
 
   <ion-content padding>
+    <p class="instruction">Choose both coordinates (by clicking the map) and date to search for the location sattelite image:</p>
     <ion-grid>
       <ion-row>
         <ion-col col-10>
@@ -36,17 +37,20 @@
         <ion-col col-3>
           <h5 class="detail-label">Date: </h5>
         </ion-col>
-        <ion-col col-9>
+        <ion-col col-5>
           <span class="detail-value">
-            <ion-datetime displayFormat="YYYY-MM-DD"
-                          pickerFormat="YYYY-MM-DD"
-                          [(ngModel)]="datePickerModel">
-            </ion-datetime>
+            <ion-badge class="push-up">
+              <ion-datetime displayFormat="YYYY-MM-DD"
+                            pickerFormat="YYYY-MM-DD"
+                            [(ngModel)]="datePickerModel">
+              </ion-datetime>
+            </ion-badge>
           </span>
+        </ion-col>
+        <ion-col col-4>
+          <button class="push-up" ion-button secondary full (click)="getSatteliteImage()">Search</button>
         </ion-col>
       </ion-row>
     </ion-grid>
-
-    <button ion-button secondary full (click)="getSatteliteImage()">Get sattelite image</button>
   </ion-content>
 </ion-content>
