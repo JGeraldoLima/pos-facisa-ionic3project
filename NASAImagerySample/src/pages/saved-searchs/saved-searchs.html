@@ -16,6 +16,11 @@
         <p>{{search.lat}}, {{search.long}}</p>
         <ion-note item-end>{{search.date}}</ion-note>
       </ion-item>
+      <ion-item-options side="right|left">
+        <button ion-button color="danger" (click)="deleteSearch(search)">Delete
+          <ion-icon name="trash"></ion-icon>
+        </button>
+      </ion-item-options>
     </ion-item-sliding>
   </ion-list>
 

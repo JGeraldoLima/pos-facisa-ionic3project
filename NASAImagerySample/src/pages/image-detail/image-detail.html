@@ -7,15 +7,15 @@
   <ion-img [src]="imageData.url" alt="Loading image url...">
   </ion-img>
 
-  <ion-fab top right edge #fab1>
+  <ion-fab top right edge #imageOptionsFab>
     <button ion-fab mini>
       <ion-icon name="add"></ion-icon>
     </button>
     <ion-fab-list side="bottom">
-      <button ion-fab (click)="saveToFavorites()">
-        <ion-icon name="star"></ion-icon>
+      <button ion-fab (click)="saveToFavorites(imageOptionsFab)">
+        <ion-icon name="{{imageData.userID ? 'trash' : 'star-outline' }}"></ion-icon>
       </button>
-      <button ion-fab (click)="share()">
+      <button ion-fab (click)="share(imageOptionsFab)">
         <ion-icon name="share"></ion-icon>
       </button>
     </ion-fab-list>

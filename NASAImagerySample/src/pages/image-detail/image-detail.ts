@@ -1,5 +1,9 @@
 import {Component} from '@angular/core';
-import {NavController, NavParams} from 'ionic-angular';
+import {FabContainer, NavController, NavParams} from 'ionic-angular';
+import {AngularFireDatabase, FirebaseListObservable} from 'angularfire2/database';
+import {AuthProvider} from '../../providers/auth/auth';
+import {LoadingServiceProvider} from '../../providers/loading-service/loading-service';
+import {ToastServiceProvider} from '../../providers/toast-service/toast-service';
 
 @Component({
   selector: 'page-image-detail',
@@ -7,18 +11,53 @@ import {NavController, NavParams} from 'ionic-angular';
 })
 export class ImageDetailPage {
 
-  imageData = {};
+  imageData: any = {};
+  searchs: FirebaseListObservable<any[]>;
 
-  constructor(public navCtrl: NavController, public navParams: NavParams) {
+  constructor(public navCtrl: NavController, public navParams: NavParams, private db: AngularFireDatabase,
+              private auth: AuthProvider, private loadingService: LoadingServiceProvider,
+              private toastService: ToastServiceProvider) {
     this.imageData = navParams.get('data');
+    this.searchs = db.list('/saved_searchs');
   }
 
-  saveToFavorites() {
+  saveToFavorites(fab: FabContainer) {
+    fab.close();
+    if (this.imageData.userID) {
+      let removingProgressLoader = this.loadingService.buildLoading('Removing search...', true);
+      removingProgressLoader.present();
 
+      this.searchs.remove(this.imageData)
+        .then(res => {
+          removingProgressLoader.dismiss();
+        this.toastService.showToast('Search removed!', 3000);
+      }).catch(error => {
+        removingProgressLoader.dismiss();
+        this.toastService.showToast('Error trying to remove the search: ' + error.message, 3000);
+      });
+    } else {
+      let savingProgressLoader = this.loadingService.buildLoading('Saving search...', true);
+      savingProgressLoader.present();
+
+      this.imageData = {
+        lat: this.imageData.lat,
+        long: this.imageData.long,
+        date: this.imageData.date,
+        url: this.imageData.url,
+        userID: this.auth.user.uid
+      };
+      this.searchs.push(this.imageData).then(res => {
+        savingProgressLoader.dismiss();
+        this.toastService.showToast('Search saved!', 3000);
+      }).catch(error => {
+        savingProgressLoader.dismiss();
+        this.toastService.showToast('Error trying to save the search: ' + error.message, 3000);
+      });
+    }
   }
 
-  share() {
-
+  share(fab: FabContainer) {
+    fab.close();
   }
 
 }

@@ -19,8 +19,8 @@ export class AuthProvider {
     afAuth.authState.subscribe((user: firebase.User) => this.currentUser = user);
   }
 
-  get authenticated(): boolean {
-    return this.currentUser !== null;
+  get user(): firebase.User {
+    return this.currentUser;
   }
 
   signInWithFacebook(): firebase.Promise<any> {

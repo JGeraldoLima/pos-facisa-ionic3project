@@ -38,7 +38,7 @@ export class HomePage implements OnInit {
   }
 
   getCurrentPosition() {
-    let progressLoader = this.getNewLoaderInstance('Calculating your position...', true);
+    let progressLoader = this.loadingService.buildLoading('Calculating your position...', true);
     progressLoader.present();
     this.geolocation.getCurrentPosition({enableHighAccuracy: true})
       .then((result) => {
@@ -61,12 +61,8 @@ export class HomePage implements OnInit {
     this.map.longitude = coords.lng;
   }
 
-  getNewLoaderInstance(message, closeable) {
-    return this.loadingService.buildLoading(message, closeable);
-  }
-
   getSatteliteImage() {
-    let nasaLoader = this.getNewLoaderInstance('Searching for some image...', true);
+    let nasaLoader = this.loadingService.buildLoading('Searching for some image...', true);
     nasaLoader.present();
 
     let currentDate = new Date(this.datePickerModel);
@@ -76,13 +72,14 @@ export class HomePage implements OnInit {
     let formatedDate = yyyy + '-' + mm + '-' + dd;
     this.nasaService.getLocalImage(this.map.latitude, this.map.longitude, 0.025, formatedDate).subscribe((result => {
       if (result.url) {
-        this.navCtrl.push(ImageDetailPage, {'data':
-          {
-            url: result.url,
-            lat: this.map.latitude,
-            long: this.map.longitude,
-            date: formatedDate
-          }
+        this.navCtrl.push(ImageDetailPage, {
+          'data':
+            {
+              url: result.url,
+              lat: this.map.latitude,
+              long: this.map.longitude,
+              date: formatedDate
+            }
         });
       } else {
         this.toastService.showToast('There is no image for the given date.', 3000);
