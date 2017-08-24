@@ -18,6 +18,8 @@ export const  firebase_config = {
 export const NASA_API_KEY = 'xxxx';
 
 export const MAPS_KEY = 'xxx';
+
+export const GOOGLE_PLUS_WEB_ID = 'xxxx';
 ```
 
 ## How to use this template

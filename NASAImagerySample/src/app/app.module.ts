@@ -24,6 +24,7 @@ import {LoginPage} from '../pages/login/login';
 import {firebase_config, MAPS_KEY} from '../../private_keys';
 import {Facebook} from '@ionic-native/facebook';
 import {GooglePlus} from '@ionic-native/google-plus';
+import {SocialSharing} from '@ionic-native/social-sharing';
 
 @NgModule({
   declarations: [
@@ -63,7 +64,8 @@ import {GooglePlus} from '@ionic-native/google-plus';
     LoadingServiceProvider,
     AuthProvider,
     Facebook,
-    GooglePlus
+    GooglePlus,
+    SocialSharing
   ]
 })
 export class AppModule {

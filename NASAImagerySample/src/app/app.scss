@@ -17,3 +17,12 @@
 #userProfile {
   background: lightgrey;
 }
+
+.scroll-content {
+  overflow: hidden;
+}
+
+ion-list {
+  overflow-y: auto;
+  max-height: 100%;
+}
