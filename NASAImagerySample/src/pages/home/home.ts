@@ -5,6 +5,7 @@ import {ToastServiceProvider} from '../../providers/toast-service/toast-service'
 import {LoadingServiceProvider} from '../../providers/loading-service/loading-service';
 import {NasaServiceProvider} from '../../providers/nasa-service/nasa-service';
 import {ImageDetailPage} from '../image-detail/image-detail';
+import {Network} from '@ionic-native/network';
 
 @Component({
   selector: 'page-home',
@@ -22,6 +23,7 @@ export class HomePage implements OnInit {
 
   constructor(public navCtrl: NavController,
               public geolocation: Geolocation,
+              private network: Network,
               private toastService: ToastServiceProvider,
               private loadingService: LoadingServiceProvider,
               private nasaService: NasaServiceProvider) {
@@ -49,8 +51,7 @@ export class HomePage implements OnInit {
         progressLoader.dismiss();
       })
       .catch((error) => {
-        console.log(error);
-        this.toastService.showToast('Something went wrong! ' + error, 3000);
+        this.toastService.showToast('Something went wrong! ' + error.message, 3000);
         progressLoader.dismiss();
       });
   }

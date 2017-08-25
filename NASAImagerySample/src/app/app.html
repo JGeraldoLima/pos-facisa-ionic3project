@@ -14,13 +14,15 @@
       <p>{{(loggedUser | async)?.email}}</p>
     </ion-item>
     <ion-list>
-      <button menuClose ion-item *ngFor="let p of pages" (click)="openPage(p)">
+      <ion-item menuClose ion-item *ngFor="let p of pages" (click)="openPage(p)">
+        <ion-icon class="primary" name="{{p.icon}}" item-start></ion-icon>
         {{p.title}}
-      </button>
+      </ion-item>
     </ion-list>
-    <button menuClose ion-item (click)="signOut()">
+    <ion-item menuClose ion-item (click)="signOut()">
+      <ion-icon class="signout" name="log-out" item-start></ion-icon>
       Sign out
-    </button>
+    </ion-item>
   </ion-content>
 
 </ion-menu>

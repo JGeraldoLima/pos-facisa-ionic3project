@@ -22,7 +22,7 @@ export class MyApp {
 
   loggedUser: Observable<firebase.User>;
 
-  pages: Array<{ title: string, component: any }>;
+  pages: Array<{ title: string, component: any, icon: string}>;
 
   constructor(public platform: Platform,
               public auth: AuthProvider,
@@ -46,8 +46,8 @@ export class MyApp {
     this.initializeApp();
 
     this.pages = [
-      {title: 'Home', component: HomePage},
-      {title: 'Favorite Images', component: SavedSearchsPage}
+      {title: 'Home', component: HomePage, icon: 'home'},
+      {title: 'Favorite Images', component: SavedSearchsPage, icon: 'star'}
     ];
 
   }

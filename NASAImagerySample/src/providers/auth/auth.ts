@@ -47,6 +47,8 @@ export class AuthProvider {
 
   signInWithGoogle(): firebase.Promise<any> {
     if (this.platform.is('cordova')) {
+
+      // native ionic google signin lib is limited to Google+ accounts
       return this.googlePlus.login({
         'webClientId': GOOGLE_PLUS_WEB_ID
       }).then((res) => {

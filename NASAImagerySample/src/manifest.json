@@ -1,6 +1,6 @@
 {
-  "name": "Ionic",
-  "short_name": "Ionic",
+  "name": "NASA Imagery Sample",
+  "short_name": "NIS",
   "start_url": "index.html",
   "display": "standalone",
   "icons": [{

@@ -25,6 +25,7 @@ import {firebase_config, MAPS_KEY} from '../../private_keys';
 import {Facebook} from '@ionic-native/facebook';
 import {GooglePlus} from '@ionic-native/google-plus';
 import {SocialSharing} from '@ionic-native/social-sharing';
+import {Network} from '@ionic-native/network';
 
 @NgModule({
   declarations: [
@@ -59,6 +60,7 @@ import {SocialSharing} from '@ionic-native/social-sharing';
     {provide: ErrorHandler, useClass: IonicErrorHandler},
     NasaServiceProvider,
     Geolocation,
+    Network,
     Toast,
     ToastServiceProvider,
     LoadingServiceProvider,
